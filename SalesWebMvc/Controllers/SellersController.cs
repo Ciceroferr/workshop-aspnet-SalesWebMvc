@@ -51,13 +51,13 @@ namespace SalesWebMvc.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction(nameof(Error), new { Messafe = "Id not provided" });
+                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
             }
 
             var obj = _sellerService.FindById(id.Value);
             if(obj == null)
             {
-                return RedirectToAction(nameof(Error), new { Messafe = "Id not found" });
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
             }
 
             return View(obj);
@@ -76,12 +76,12 @@ namespace SalesWebMvc.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction(nameof(Error), new { Messafe = "Id not provided" });
+                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
             }
             var obj = _sellerService.FindById(id.Value);
             if(obj == null)
             {
-                return RedirectToAction(nameof(Error), new { Messafe = "Id not found" });
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
             }
 
             return View(obj);
@@ -93,12 +93,12 @@ namespace SalesWebMvc.Controllers
         {
             if(id == null)
             {
-                return RedirectToAction(nameof(Error), new { Messafe = "Id not provided" });
+                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
             }
             var obj = _sellerService.FindById(id.Value);
             if(obj == null)
             {
-                return RedirectToAction(nameof(Error), new { Messafe = "Id not found" });
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
             }
 
             List<Department> departments = _departmentService.FindAll();
@@ -112,7 +112,7 @@ namespace SalesWebMvc.Controllers
         {
             if(id != seller.Id)
             {
-                return RedirectToAction(nameof(Error), new { Messafe = "Id mismatch" });
+                return RedirectToAction(nameof(Error), new { message = "Id mismatch" });
             }
             try
             {
@@ -121,7 +121,7 @@ namespace SalesWebMvc.Controllers
             }
             catch (ApplicationException e)
             {
-                return RedirectToAction(nameof(Error), new { Messafe = e.Message });
+                return RedirectToAction(nameof(Error), new { message = e.Message });
             }
             
         }
